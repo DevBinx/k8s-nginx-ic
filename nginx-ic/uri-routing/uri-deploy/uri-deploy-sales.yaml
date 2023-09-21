@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uri-dep-sales-deploy
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uri-svc-sales
+  template:
+    metadata:
+      labels:
+        app: uri-svc-sales
+    spec:
+      containers:
+      - name: uri-svc-sales-container
+        image: nginx
+        ports:
+          - containerPort: 80

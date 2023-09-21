@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uri-svc-sales
+  namespace: ingress-nginx
+spec:
+  ports:
+  - name: uri-svc-sales-port
+    port: 80
+    targetPort: 80
+  selector:
+    app: uri-svc-sales

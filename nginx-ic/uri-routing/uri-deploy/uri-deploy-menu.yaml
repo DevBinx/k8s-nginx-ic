@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uri-dep-menu-deploy
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uri-svc-menu
+  template:
+    metadata:
+      labels:
+        app: uri-svc-menu
+    spec:
+      containers:
+      - name: uri-svc-menu-container
+        image: nginx
+        ports:
+          - containerPort: 80
