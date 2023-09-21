@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-account-deploy
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-account
+  template:
+    metadata:
+      labels:
+        app: demo-account
+    spec:
+      containers:
+      - name: demo-account-container
+        image: nginx
+        ports:
+          - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-menu-deploy
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-menu
+  template:
+    metadata:
+      labels:
+        app: demo-menu
+    spec:
+      containers:
+      - name: demo-menu-container
+        image: nginx
+        ports:
+          - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-sales-deploy
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-sales
+  template:
+    metadata:
+      labels:
+        app: demo-sales
+    spec:
+      containers:
+      - name: demo-sales-container
+        image: nginx
+        ports:
+          - containerPort: 80
