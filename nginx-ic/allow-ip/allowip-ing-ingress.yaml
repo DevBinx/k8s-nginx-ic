@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name:  allow-ip-ingress
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1;
+    nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.xxx.xxx"
+spec:
+  rules:
+  - host: 'devbinx.com'
+    http:
+      paths:
+        - path: /account
+          pathType: Prefix
+          backend:
+            service:
+              name: demo-svc-account
+              port:
+                number: 80
+        - path: /menu
+          pathType: Prefix
+          backend:
+            service:
+              name: demo-svc-menu
+              port:
+                number: 80
+        - path: /sales
+          pathType: Prefix
+          backend:
+            service:
+              name: demo-svc-sales
+              port:
+                number: 80
+  ingressClassName: nginx
