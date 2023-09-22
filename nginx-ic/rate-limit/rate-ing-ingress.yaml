@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rate-limit-ingress
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/limit-rps: "500"
+spec:
+  rules:
+  - host: devbinx.com
+    http:
+      paths:
+      - path: /account
+        pathType: Prefix
+        backend:
+          service:
+            name: demo-svc-account
+            port:
+              number: 80
+  ingressClassName: nginx
