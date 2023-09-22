@@ -4,11 +4,11 @@ metadata:
   name:  allow-ip-ingress
   namespace: ingress-nginx
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1;
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.xxx.xxx"
 spec:
   rules:
-  - host: 'devbinx.com'
+  - host: devbinx.com
     http:
       paths:
         - path: /account
