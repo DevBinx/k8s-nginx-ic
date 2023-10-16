@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-account-deploy
-  namespace: ingress-nginx
+  namespace: nginx-ingress
 spec:
   replicas: 1
   selector:
@@ -23,7 +23,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-menu-deploy
-  namespace: ingress-nginx
+  namespace: nginx-ingress
 spec:
   replicas: 1
   selector:
@@ -44,7 +44,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-sales-deploy
-  namespace: ingress-nginx
+  namespace: nginx-ingress
 spec:
   replicas: 1
   selector:

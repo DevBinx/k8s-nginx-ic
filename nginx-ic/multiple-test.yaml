@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: allow-ip-ingress
+  name: uri-ingress
   namespace: ingress-nginx
   annotations:
-    #nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.200.130"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
     - host: devbinx.com
@@ -31,4 +31,4 @@ spec:
                 name: demo-svc-sales
                 port:
                   number: 80
-  ingressClassName: nginx
+  ingressClassName: internal-nginx
