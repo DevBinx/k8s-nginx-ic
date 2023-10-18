@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: demo-svc-account
-  namespace: nginx-ingress
+  namespace: ingress-nginx
 spec:
   ports:
   - name: demo-svc-account-port
@@ -17,7 +17,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: demo-svc-menu
-  namespace: nginx-ingress
+  namespace: ingress-nginx
 spec:
   ports:
   - name: demo-svc-menu-port
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: demo-svc-sales
-  namespace: nginx-ingress
+  namespace: ingress-nginx
 spec:
   ports:
   - name: demo-svc-sales-port

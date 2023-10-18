@@ -149,7 +149,7 @@ metadata:
     app.kubernetes.io/name: internal-ingress-nginx
     app.kubernetes.io/part-of: internal-ingress-nginx
     app.kubernetes.io/version: 1.8.2
-  name: ingress-nginx
+  name: internal-ingress-nginx
 rules:
 - apiGroups:
   - ""
