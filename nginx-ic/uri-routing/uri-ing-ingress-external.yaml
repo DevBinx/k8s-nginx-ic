@@ -1,8 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: uri-ingress
+  name: uri-ingress-external
   namespace: ingress-nginx
+  annotations:
+    #nginx.org/rewrites: /$1
 spec:
   rules:
     - host: devbinx.com
@@ -12,8 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: demo-svc-account
+                name: demo-svc-sales
                 port:
-                  number:
-                    80
-  ingressClassName: nginx
+                  number: 80
+  ingressClassName: external-nginx
