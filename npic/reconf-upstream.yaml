@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: reconf-ingress
+  namespace: nginx-ingress
+  annotations:
+    nginx.org/server-snippets: |
+      location /api {
+        api write=on;
+        allow all;
+      }
+
+      location =/dashboard.html {
+        root /usr/share/nginx/html/;
+      }
+spec:
+  rules:
+    - host: devbinx.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: demo-svc-account
+                port:
+                  number:
+                    80
+  ingressClassName: nginx
